@@ -1,7 +1,7 @@
 <template>
   <div>
-    <router-link to="/news">news</router-link>
-    <router-link to="/ask">ask</router-link>
+    <router-link to="/news">news</router-link> |
+    <router-link to="/ask">ask</router-link> |
     <router-link to="/jobs">jobs</router-link>
   </div>
 </template>
@@ -10,4 +10,8 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="scss">
+body {
+  background-color: skyblue;
+}
+</style>
