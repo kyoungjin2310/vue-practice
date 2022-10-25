@@ -17,5 +17,13 @@ export default {};
   background-color: #42b883;
   display: flex;
   padding: 8px;
+
+  //vue 자체적으로 활성화 되었을때 class name
+  .router-link-exact-active {
+    color: #35495e;
+  }
+  a {
+    color: white;
+  }
 }
 </style>
