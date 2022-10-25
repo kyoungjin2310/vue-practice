@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { fetchAskList, fetchJobsList, fetchNewsList } from "@/api";
-
+import mutations from "./mutations";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -16,18 +16,7 @@ export const store = new Vuex.Store({
       return state.ask;
     },
   },
-  mutations: {
-    //mutations type명(state, api data 인자값)
-    SET_NEWS(state, news) {
-      state.news = news;
-    },
-    SET_ASK(state, ask) {
-      state.ask = ask;
-    },
-    SET_JOBS(state, jobs) {
-      state.jobs = jobs;
-    },
-  },
+  mutations,
   actions: {
     FETCH_NEWS(context) {
       fetchNewsList()
