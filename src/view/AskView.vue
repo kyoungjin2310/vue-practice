@@ -7,13 +7,14 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
-  //this. 타고타고 많아져서 mapState를 씀
+  //this. 타고타고 많아져서 mapGetters 씀
+  //mapGetters key: getters에서 선언한 것
   computed: {
-    ...mapState({
-      ask: (state) => state.ask,
+    ...mapGetters({
+      ask: "fetchAsk",
     }),
   },
   created() {

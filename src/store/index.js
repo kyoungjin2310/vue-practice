@@ -10,6 +10,12 @@ export const store = new Vuex.Store({
     ask: [],
     jobs: [],
   },
+  //getters - store에 computed 속성
+  getters: {
+    fetchAsk(state) {
+      return state.ask;
+    },
+  },
   mutations: {
     //mutations type명(state, api data 인자값)
     SET_NEWS(state, news) {
