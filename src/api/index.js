@@ -19,3 +19,4 @@ function fetchJobsList() {
 }
 
 export { fetchNewsList, fetchAskList, fetchJobsList };
+
