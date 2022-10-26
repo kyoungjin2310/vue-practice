@@ -3,6 +3,7 @@ import Vue from "vue";
 import AskView from "../view/AskView.vue";
 import NewsView from "../view/NewsView.vue";
 import JobsView from "../view/JobsView.vue";
+import UserView from "../view/UserView.vue";
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,10 @@ export const router = new VueRouter({
     {
       path: "/jobs",
       component: JobsView,
+    },
+    {
+      path: "/user",
+      component: UserView,
     },
   ],
 });
