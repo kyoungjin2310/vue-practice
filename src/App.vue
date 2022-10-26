@@ -2,7 +2,7 @@
   <div id="app">
     <header-menu></header-menu>
     <!-- vue router transition 공식문서 - https://router.vuejs.org/guide/advanced/transitions.html#per-route-transition
-     --><transition name="fade">
+     --><transition name="page">
       <router-view />
     </transition>
   </div>
@@ -22,13 +22,13 @@ body {
   padding: 0;
   margin: 0;
 }
-.fade-enter-active,
-.fade-leave-active {
+.page-enter-active,
+.page-leave-active {
   transition: opacity 0.5s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.page-enter-from,
+.page-leave-to {
   opacity: 0;
 }
 </style>
