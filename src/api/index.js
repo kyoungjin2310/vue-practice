@@ -18,5 +18,9 @@ function fetchJobsList() {
   return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-export { fetchNewsList, fetchAskList, fetchJobsList };
+//router params id값을 인자로 받아서 api요청
+function fetchUserInfo(username) {
+  return axios.get(`${config.baseUrl}user/${username}.json`);
+}
 
+export { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo };
