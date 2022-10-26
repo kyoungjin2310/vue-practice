@@ -27,7 +27,8 @@ export const router = new VueRouter({
       component: JobsView,
     },
     {
-      path: "/user",
+      //:id - params에 id값으로 설정
+      path: "/user/:id",
       component: UserView,
     },
   ],
