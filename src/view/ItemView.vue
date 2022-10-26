@@ -16,8 +16,9 @@
     </section>
     <section>
       <!-- 질문 댓글 -->
+      <!-- v-html data에 html로 받는경우  -->
+      <div v-html="fetchItem.content"></div>
     </section>
-    <div>{{ fetchItem.content }}</div>
   </div>
 </template>
 
