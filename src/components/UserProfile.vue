@@ -10,6 +10,8 @@
           <slot name="time"> <!-- 상위 컴포넌트에서 정의할 영역 --> </slot>
         </div>
       </div>
+      <!-- slot쓸때, data없으면 안생기고, data가 있으면 생김 -->
+      <slot name="karma"></slot>
     </div>
   </div>
 </template>
