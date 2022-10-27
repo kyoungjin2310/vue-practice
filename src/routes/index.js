@@ -27,7 +27,7 @@ export const router = new VueRouter({
     },
     {
       path: "/jobs",
-      name: "news",
+      name: "jobs",
       component: JobsView,
     },
     {
