@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 body {
   padding: 0;
   margin: 0;
@@ -30,5 +30,16 @@ body {
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
+}
+a {
+  color: #34495e;
+
+  text-decoration: none;
+  &.router-link-exact-acitve {
+    text-decoration: underline;
+  }
+  &:hover {
+    color: #42b883;
+  }
 }
 </style>
