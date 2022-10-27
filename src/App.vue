@@ -5,18 +5,43 @@
      --><transition name="page">
       <router-view />
     </transition>
-    <spinner-loading :loading="true" />
+    <spinner-loading :loading="loadingStatus" />
   </div>
 </template>
 
 <script>
 import HeaderMenu from "./components/HeaderMenu.vue";
 import SpinnerLoading from "./components/SpinnerLoading.vue";
-
+import bus from "./utils/bus";
 export default {
   components: {
     HeaderMenu,
     SpinnerLoading,
+  },
+  data() {
+    //변수
+    return {
+      loadingStatus: false,
+    };
+  },
+  methods: {
+    //함수 만듦
+    startSpiner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+    },
+  },
+  created() {
+    //event
+    bus.$on("start:spinner", this.startSpiner);
+    bus.$on("end:spinner", this.endSpinner);
+  },
+  //이벤트 버스는 특정 컴포넌트에서 중첩되어 리스너가 달릴 수 가 있으니 off로 해제 (App에서 event 할 경우)
+  beforeDestroy() {
+    bus.$off("start:spinner", this.startSpiner);
+    bus.$off("end:spinner", this.endSpinner);
   },
 };
 </script>
