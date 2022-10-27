@@ -5,7 +5,9 @@
       <user-profile :info="fetchItem">
         <!-- template tag - txt만 나타남 <></>랑 같음 -->
         <template v-slot:username>
-          {{ fetchItem.user }}
+          <router-link :to="`/user/${fetchItem.user}`">
+            {{ fetchItem.user }}
+          </router-link>
         </template>
         <template v-slot:time> {{ fetchItem.time_ago }}</template>
       </user-profile>
