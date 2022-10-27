@@ -2,7 +2,13 @@
   <div>
     <!-- 질문 상세 정보 -->
     <section>
-      <user-profile :info="fetchItem" />
+      <user-profile :info="fetchItem">
+        <!-- template tag - txt만 나타남 <></>랑 같음 -->
+        <template v-slot:username>
+          {{ fetchItem.user }}
+        </template>
+        <template v-slot:time> {{ fetchItem.time_ago }}</template>
+      </user-profile>
     </section>
     <section>
       <h2>{{ fetchItem.title }}</h2>

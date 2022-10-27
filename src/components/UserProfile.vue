@@ -2,10 +2,14 @@
   <div class="user-container">
     <div><i class="fas fa-user"></i></div>
     <div class="user-description">
-      <div>
-        {{ info.id }}
+      <slot name="username">
+        <!-- 상위 컴포넌트에서 정의할 영역 -->
+      </slot>
+      <div class="time">
+        <div class="time">
+          <slot name="time"> <!-- 상위 컴포넌트에서 정의할 영역 --> </slot>
+        </div>
       </div>
-      <div class="time">{{ info.created }}</div>
     </div>
   </div>
 </template>
