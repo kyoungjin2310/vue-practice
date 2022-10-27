@@ -10,41 +10,41 @@ export default {
   FETCH_NEWS(context) {
     fetchNewsList()
       .then((response) => {
-        console.log(response.data);
-        //mutations에 넣는 방법 - context.commit(mutations type명, 값)
         context.commit("SET_NEWS", response.data);
+        //data를 불러오고 나서 spnnier가 사라져야 되어서, Promise 객체 반환
+        return response;
       })
       .catch((e) => console.log(e));
   },
   FETCH_ASK(context) {
     fetchAskList()
       .then((response) => {
-        console.log(response.data);
         context.commit("SET_ASK", response.data);
+        return response;
       })
       .catch((e) => console.log(e));
   },
   FETCH_JOBS({ commit }) {
     fetchJobsList()
-      .then(({ data }) => {
-        console.log(data);
-        commit("SET_JOBS", data);
+      .then((response) => {
+        commit("SET_JOBS", response.data);
+        return response;
       })
       .catch((e) => console.log(e));
   },
   FETCH_USER({ commit }, name) {
     fetchUserInfo(name)
-      .then(({ data }) => {
-        console.log(data);
-        commit("SET_USER", data);
+      .then((response) => {
+        commit("SET_USER", response.data);
+        return response;
       })
       .catch((e) => console.log(e));
   },
   FETCH_ITEM({ commit }, id) {
     fetchCommentItem(id)
-      .then(({ data }) => {
-        console.log(data);
-        commit("SET_ITEM", data);
+      .then((response) => {
+        commit("SET_ITEM", response.data);
+        return response;
       })
       .catch((e) => console.log(e));
   },
