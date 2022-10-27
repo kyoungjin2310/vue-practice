@@ -26,26 +26,12 @@
 <script>
 import UserProfile from "../components/UserProfile.vue";
 import { mapGetters } from "vuex";
-import bus from "../utils/bus";
 export default {
   components: {
     UserProfile,
   },
   computed: {
     ...mapGetters(["fetchItem"]),
-  },
-  created() {
-    bus.$emit("start:spinner");
-
-    const itemId = this.$route.params.id;
-    setTimeout(() => {
-      this.$store
-        .dispatch("FETCH_ITEM", itemId)
-        .then(() => {
-          bus.$emit("end:spinner");
-        })
-        .catch((e) => console.log(e));
-    }, 3000);
   },
 };
 </script>

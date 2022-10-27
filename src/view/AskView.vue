@@ -24,24 +24,11 @@
 
 <script>
 import { mapGetters } from "vuex";
-import bus from "../utils/bus";
 export default {
   //this. 타고타고 많아져서 mapGetters 씀
   //mapGetters key: getters에서 선언한 것
   computed: {
     ...mapGetters(["fetchAsk"]),
-  },
-  created() {
-    bus.$emit("start:spinner");
-
-    setTimeout(() => {
-      this.$store
-        .dispatch("FETCH_ASK")
-        .then(() => {
-          bus.$emit("end:spinner");
-        })
-        .catch((e) => console.log(e));
-    }, 3000);
   },
 };
 </script>
