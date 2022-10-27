@@ -3,19 +3,18 @@
     <div><i class="fas fa-user"></i></div>
     <div class="user-description">
       <div>
-        {{ userInfo.id }}
+        {{ info.id }}
       </div>
-      <div class="time">{{ userInfo.created }}</div>
+      <div class="time">{{ info.created }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    userInfo() {
-      return this.$store.state.user;
-    },
+  props: {
+    // data가 Object 형태
+    info: Object,
   },
 };
 </script>
