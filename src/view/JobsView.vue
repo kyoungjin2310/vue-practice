@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ul class="news-list">
+    <list-item />
+    <!-- <ul class="news-list">
       <li
         v-for="item in this.$store.state.jobs"
         v-bind:key="item.title"
         class="post"
       >
-        <!-- 포인트 영역 -->
         <div class="points">{{ item.points || 0 }}</div>
         <div>
           <p class="news-title">
@@ -18,14 +18,15 @@
           </small>
         </div>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
+import ListItem from "../components/ListItem.vue";
 export default {
-  created() {
-    this.$store.dispatch("FETCH_JOBS");
+  components: {
+    ListItem,
   },
 };
 </script>
