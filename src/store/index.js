@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
     ask: [],
     jobs: [],
     user: {},
-    item: [],
+    item: {},
   },
   //getters - store에 computed 속성
   getters: {
