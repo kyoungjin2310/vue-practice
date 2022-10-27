@@ -5,14 +5,18 @@
      --><transition name="page">
       <router-view />
     </transition>
+    <spinner-loading :loading="true" />
   </div>
 </template>
 
 <script>
 import HeaderMenu from "./components/HeaderMenu.vue";
+import SpinnerLoading from "./components/SpinnerLoading.vue";
+
 export default {
   components: {
     HeaderMenu,
+    SpinnerLoading,
   },
 };
 </script>
