@@ -29,7 +29,7 @@ export const router = new VueRouter({
         store
           .dispatch("FETCH_LIST", to.name)
           .then(() => {
-            bus.$emit("end:spinner");
+            // bus.$emit("end:spinner");
             //next 안하면 data가 안들어옴
             next();
           })
@@ -40,11 +40,25 @@ export const router = new VueRouter({
       path: "/ask",
       name: "ask",
       component: AskView,
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => next())
+          .catch((e) => console.log(e));
+      },
     },
     {
       path: "/jobs",
       name: "jobs",
       component: JobsView,
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => next())
+          .catch((e) => console.log(e));
+      },
     },
     {
       //:id - params에 id값으로 설정
