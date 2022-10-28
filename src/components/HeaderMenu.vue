@@ -1,13 +1,19 @@
 <template>
   <div class="header">
-    <router-link to="/news">news</router-link> |
-    <router-link to="/ask">ask</router-link> |
-    <router-link to="/jobs">jobs</router-link>
+    <menu-item v-for="item in menu" :key="item" :menu="item" />
   </div>
 </template>
 
 <script>
-export default {};
+import MenuItem from "./MenuItem.vue";
+export default {
+  components: { MenuItem },
+  data() {
+    return {
+      menu: ["news", "ask", "jobs"],
+    };
+  },
+};
 </script>
 
 <!-- scoped 해당 컴포넌트에만 적용 -->
