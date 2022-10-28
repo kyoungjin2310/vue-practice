@@ -6,7 +6,8 @@ import JobsView from "../view/JobsView.vue";
 import UserView from "../view/UserView.vue";
 import ItemView from "../view/ItemView.vue";
 // import CreateListView from "../view/CreateListView";
-
+import bus from "../utils/bus";
+import { store } from "../store/index";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -21,21 +22,18 @@ export const router = new VueRouter({
       name: "news",
       component: NewsView,
       beforeEnter: (to, from, next) => {
-        //to - 이동할 url
-        console.log("to", to);
-        //from - 현재 url
-        console.log("from", from);
-        console.log(next);
-        //router 쿼리 쓸경우
-        if (to.matched === "") {
-          next();
-        }
-        //인증
-        if (to.auth) {
-          next();
-        } else {
-          router.replace("/login");
-        }
+        bus.$emit("start:spinner");
+
+        //router에서 store은 this 사용 못함, 직접 불러와야함
+        //router의 name을 알려면 현재 to를 사용해야함
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            bus.$emit("end:spinner");
+            //next 안하면 data가 안들어옴
+            next();
+          })
+          .catch((e) => console.log(e));
       },
     },
     {
