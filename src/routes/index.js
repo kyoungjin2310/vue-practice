@@ -20,6 +20,23 @@ export const router = new VueRouter({
       path: "/news",
       name: "news",
       component: NewsView,
+      beforeEnter: (to, from, next) => {
+        //to - 이동할 url
+        console.log("to", to);
+        //from - 현재 url
+        console.log("from", from);
+        console.log(next);
+        //router 쿼리 쓸경우
+        if (to.matched === "") {
+          next();
+        }
+        //인증
+        if (to.auth) {
+          next();
+        } else {
+          router.replace("/login");
+        }
+      },
     },
     {
       path: "/ask",
