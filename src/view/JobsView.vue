@@ -14,3 +14,5 @@ export default {
   mixins: [ListMixin],
 };
 </script>
+
+<style></style>
