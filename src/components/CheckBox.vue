@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     toggleCheckBox() {
+      // input - 상위컴포넌트에 전달할 발생한 이벤트 이름
       this.$emit("input", !this.checked);
     },
   },
