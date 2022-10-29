@@ -10,7 +10,7 @@ export default {
   components: { MenuItem },
   data() {
     return {
-      menu: ["news", "ask", "jobs"],
+      menu: ["news", "ask", "jobs", "input"],
     };
   },
 };

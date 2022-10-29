@@ -5,6 +5,7 @@ import NewsView from "../view/NewsView.vue";
 import JobsView from "../view/JobsView.vue";
 import UserView from "../view/UserView.vue";
 import ItemView from "../view/ItemView.vue";
+import InputTest from "../view/InputTest.vue";
 // import CreateListView from "../view/CreateListView";
 import bus from "../utils/bus";
 import { store } from "../store/index";
@@ -64,6 +65,10 @@ export const router = new VueRouter({
       //:id - params에 id값으로 설정
       path: "/user/:id",
       component: UserView,
+    },
+    {
+      path: "/input",
+      component: InputTest,
     },
     {
       path: "/item/:id",
