@@ -1,7 +1,3 @@
-<template>
-  <div></div>
-</template>
-
 <script>
 import axios from "axios";
 export default {
@@ -18,6 +14,7 @@ export default {
       .then((res) => {
         this.response = res.data;
         this.loading = false;
+        console.log(this.response);
       })
       .catch((e) => {
         console.log(e);
